@@ -10,15 +10,18 @@
 <body class="bg-gray-100 font-sans">
 
   <!-- Header -->
-  <header class="bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-700 text-white p-8 shadow-lg">
-    <div class="container mx-auto flex items-center justify-between">
-      <h1 class="text-4xl font-bold uppercase hover:scale-105 transition-transform">Mon Panier</h1>
-      <a href="SitwebTunisie.html" class="text-lg hover:text-pink-200 transition"><i class="fas fa-home mr-2"></i>Accueil</a>
+  <header class="bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-700 text-white p-6 md:p-8 shadow-lg">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <h1 class="text-3xl md:text-4xl font-bold uppercase hover:scale-105 transition-transform">Mon Panier</h1>
+      <!-- Lien vers l'accueil modifié -->
+      <a href="https://toonsi93.github.io/MYFOOTBALL/" class="text-base md:text-lg hover:text-pink-200 transition">
+        <i class="fas fa-home mr-2"></i>Accueil
+      </a>
     </div>
   </header>
 
   <!-- Contenu Panier -->
-  <main class="container mx-auto py-10 px-4">
+  <main class="max-w-6xl mx-auto py-10 px-4">
     <section id="cartItems" class="space-y-6"></section>
 
     <div id="cartTotal" class="text-right text-xl font-semibold mt-6">Total: 0€</div>
@@ -39,7 +42,7 @@
 
   <!-- Footer -->
   <footer class="bg-gray-800 p-6 text-center text-white mt-12">
-    <p>&copy; 2025 FootStyle. Tous droits réservés.</p>
+    <p>&copy; 2025 MYFOOT. Tous droits réservés.</p>
   </footer>
 
   <!-- Script Panier -->
@@ -66,10 +69,10 @@
         total += item.totalPrice;
 
         const cartItem = document.createElement('div');
-        cartItem.className = "bg-white p-4 rounded shadow flex items-center justify-between";
+        cartItem.className = "bg-white p-4 rounded shadow flex flex-col sm:flex-row items-center justify-between gap-4";
 
         cartItem.innerHTML = `
-          <div>
+          <div class="text-center sm:text-left">
             <h3 class="text-xl font-bold">${item.name}</h3>
             ${item.size ? `<p class="text-gray-600">Taille : ${item.size}</p>` : ''}
             <p class="text-gray-700">Quantité : ${item.quantity}</p>

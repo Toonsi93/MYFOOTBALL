@@ -10,10 +10,6 @@
     body {
       font-family: 'Bebas Neue', sans-serif;
     }
-    .product-image {
-      max-width: 500px;
-      margin: 0 auto;
-    }
     .product-card {
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
@@ -42,15 +38,22 @@
     <h1 class="text-3xl font-bold">Commander votre Maillot Manchester United 25/26</h1>
   </header>
 
-  <div class="container mx-auto py-8">
+  <div class="container mx-auto py-8 px-4">
     <div class="flex justify-center items-center">
       <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-3xl product-card">
-        <div class="flex items-center mb-6">
-          <img src="https://xlforeal.com/cdn/shop/files/Frame_239.webp?v=1732754642&width=493" alt="Maillot Manchester United" class="product-image mb-4">
+
+        <!-- IMAGE CENTRÉE -->
+        <div class="flex justify-center mb-6">
+          <img src="https://media-hosting.imagekit.io/4a9aa72e9ed64d4b/image_2025-04-11_205256419-removebg-preview.png?Expires=1839005578&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=w0nPrvTAZN~lXQEcBRt8P0VJuEJGjJmUblTg7igOcXCNEfnTY4FS72CbQpgvgrbUkpqnuQENV9t84eKtnUowk6M9QohuDw1iaAtU-D62x~T-sbrFjHPIUzrltgYqNlzdC3BsODAjes5VDtx6NZYsz2ATGCuDRHfIBR0RnIVH~CQ7kCsN-k--1-z0~opj7UnACqtpnXpyrHPRuAMtjURvkwsBpYjZEO2P0dYYkC1e5sHpIxwE-C9Qet4r0581XJAJzgmW6YSbWbSmepkrZyr3CsmMd1zqKtO6UU81sOF5xTIw3JOWbQ~eDXJse8YP67IiypXDz3ydw1sdfR2l-ppxXg__"
+               alt="Maillot Manchester United"
+               class="mb-4 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto">
         </div>
 
-        <h2 class="text-2xl font-semibold text-gray-700 mb-4">Maillot Manchester United 25/26</h2>
-        <p class="product-description text-gray-600 mb-6">Un maillot audacieux pour une équipe légendaire. Incarne l'esprit de Old Trafford avec ce design exclusif.</p>
+        <h2 class="text-2xl font-semibold text-gray-700 mb-4 text-center">Maillot Manchester United 25/26</h2>
+
+        <p class="product-description text-gray-600 mb-6 text-center">
+          Un maillot audacieux pour une équipe légendaire. Incarne l'esprit de Old Trafford avec ce design exclusif.
+        </p>
 
         <div class="mb-4">
           <label for="size" class="block text-lg font-semibold">Choisir la taille</label>
@@ -68,7 +71,7 @@
         </div>
 
         <!-- Affichage du prix et de la réduction -->
-        <div class="flex justify-between items-center mb-6">
+        <div class="flex justify-between items-center mb-6 flex-wrap gap-2">
           <div class="text-xl font-semibold text-gray-700">
             Prix : <span id="price">30€</span>
           </div>
@@ -79,4 +82,65 @@
 
         <!-- Lien vers le panier -->
         <div class="mt-6 text-center">
-          <a href="panier.html" class="text-lg font-semibold
+          <a href="panier.html" class="text-lg font-semibold text-black-600">
+            Voir mon panier (<span id="cartCount">0</span> articles)
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-gray-800 p-6 text-center text-white mt-12">
+    <p>&copy; 2025 MYFOOT. Tous droits réservés.</p>
+  </footer>
+
+  <script>
+    // Fonction pour ajouter au panier
+    document.getElementById('addToCartButton').addEventListener('click', function() {
+      const size = document.getElementById('size').value;
+      const quantity = document.getElementById('quantity').value;
+      const price = 30;
+      const totalPrice = price * quantity;
+
+      const product = {
+        id: 'manchester-2025',
+        name: 'Maillot Manchester United 25/26',
+        size: size,
+        quantity: quantity,
+        price: price,
+        totalPrice: totalPrice,
+      };
+
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push(product);
+      localStorage.setItem('cart', JSON.stringify(cart));
+
+      alert('Produit ajouté au panier!');
+      updateCartCount();
+    });
+
+    // Fonction pour mettre à jour le compteur panier
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const totalItems = cart.reduce((sum, item) => sum + parseInt(item.quantity), 0);
+      document.getElementById('cartCount').textContent = totalItems;
+
+      const quantity = parseInt(document.getElementById('quantity').value);
+      const discountElement = document.getElementById('discount');
+      const priceElement = document.getElementById('price');
+
+      if (quantity >= 3) {
+        const discountedPrice = 30 * 0.9;
+        priceElement.textContent = `${discountedPrice}€`;
+        discountElement.classList.remove('hidden');
+      } else {
+        priceElement.textContent = '30€';
+        discountElement.classList.add('hidden');
+      }
+    }
+
+    // Init au chargement
+    window.onload = updateCartCount;
+  </script>
+</body>
+</html>

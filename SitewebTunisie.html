@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MY FOOT - Maillots Officiels</title>
 
-  <!-- Google Fonts - Bebas Neue, Poppins -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
@@ -24,7 +24,7 @@
       scroll-behavior: smooth;
     }
     body {
-      font-family: 'Bebas Neue', cursive; /* Applique Bebas Neue à tout le corps */
+      font-family: 'Bebas Neue', cursive;
     }
     .backdrop {
       background-image: url('https://www.krzbb.de/media.media.8b65fc5b-9373-4090-a85b-0605bc4a9d55.16x9_700.jpg');
@@ -75,38 +75,35 @@
       text-transform: uppercase;
     }
 
-    /* Applique Bebas Neue à tous les éléments */
     h1, h2, h3, h4, h5, h6, p, a, button, li {
-      font-family: 'Bebas Neue', cursive !important; /* Assure l'application partout */
+      font-family: 'Bebas Neue', cursive !important;
     }
 
-    /* Liens de navigation et autres éléments interactifs */
     nav a {
       font-family: 'Bebas Neue', cursive;
     }
 
     .bg-red-700:hover, .bg-pink-500:hover, .bg-green-700:hover {
-      background-color: #c50f3c !important; /* Modifie la couleur au survol */
+      background-color: #c50f3c !important;
     }
 
-    /* Titre principal - font Bebas Neue */
     h1 {
       font-family: 'Bebas Neue', cursive;
-      font-size: 5rem; /* Taille ajustée pour le titre principal */
+      font-size: 5rem;
       line-height: 1.2;
       font-weight: 400;
-      margin-top: 50px; /* Ajoute de l'espace au-dessus du titre */
+      margin-top: 50px;
     }
 
-    /* Sous-titre - font Poppins */
     p {
       font-family: 'Poppins', sans-serif;
       font-weight: 300;
-      font-size: 1.5rem; /* Taille plus petite que le titre */
+      font-size: 1.5rem;
       color: #f0f0f0;
     }
   </style>
 </head>
+
 <body class="bg-gray-100 font-sans">
 
   <!-- Header -->
@@ -128,33 +125,35 @@
   <section class="py-16 px-4 text-center bg-gradient-to-r from-red-600 to-pink-600 text-white">
     <h2 class="text-5xl font-bold mb-6 title-classe">Les Maillots Les Plus Demandés !</h2>
     <p class="max-w-2xl mx-auto mb-12 text-xl">Qualité premium, confort ultime et designs uniques. Les plus grandes équipes sont ici, prêtes à être portées avec fierté !</p>
-    <div id="produits" class="grid md:grid-cols-3 gap-8">
+
+    <!-- Maillots centrés -->
+    <div id="produits" class="flex flex-wrap justify-center gap-8">
       <!-- Produit 1 -->
-      <div class="product-card bg-white p-6 rounded-lg shadow-xl">
+      <div class="product-card bg-white p-6 rounded-lg shadow-xl max-w-sm w-full">
         <a href="produit-manchester.html">
-          <img src="https://xlforeal.com/cdn/shop/files/Frame_239.webp?v=1732754642&width=493" alt="Maillot Manchester United" class="product-image mb-4">
+          <img src="https://media-hosting.imagekit.io/4a9aa72e9ed64d4b/image_2025-04-11_205256419-removebg-preview.png?Expires=1839005578&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=w0nPrvTAZN~lXQEcBRt8P0VJuEJGjJmUblTg7igOcXCNEfnTY4FS72CbQpgvgrbUkpqnuQENV9t84eKtnUowk6M9QohuDw1iaAtU-D62x~T-sbrFjHPIUzrltgYqNlzdC3BsODAjes5VDtx6NZYsz2ATGCuDRHfIBR0RnIVH~CQ7kCsN-k--1-z0~opj7UnACqtpnXpyrHPRuAMtjURvkwsBpYjZEO2P0dYYkC1e5sHpIxwE-C9Qet4r0581XJAJzgmW6YSbWbSmepkrZyr3CsmMd1zqKtO6UU81sOF5xTIw3JOWbQ~eDXJse8YP67IiypXDz3ydw1sdfR2l-ppxXg__" alt="Maillot Manchester United" class="product-image mb-4 mx-auto">
         </a>
-        <h3 class="text-2xl font-semibold mb-3">Manchester United 25/26</h3>
+        <h3 class="text-2xl font-semibold mb-3 text-gray-800">Manchester United 25/26</h3>
         <p class="text-gray-700 mb-4">Un maillot audacieux pour une équipe légendaire. Incarne l'esprit de Old Trafford avec ce nouveau design exclusif.</p>
         <a href="produit-manchester.html" class="bg-red-700 text-white px-6 py-2 rounded-lg shadow-lg hover:bg-red-800 transition">Acheter</a>
       </div>
 
-      <!-- Produit 2 (Maillot Japon) -->
-      <div class="product-card bg-white p-6 rounded-lg shadow-xl">
+      <!-- Produit 2 -->
+      <div class="product-card bg-white p-6 rounded-lg shadow-xl max-w-sm w-full">
         <a href="produit-japon.html">
-          <img src="https://xlforeal.com/cdn/shop/files/japan_flowers_copyright1.png?v=1740976349&width=493" alt="Maillot Japon" class="product-image mb-4">
+          <img src="https://media-hosting.imagekit.io/fd4dfbedb7d5489a/image_2025-04-11_205441467-removebg-preview.png?Expires=1839005704&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=fUJVUXwLrfGYtkbiGH-5bLhGPrjBfa5Rw3BaSitCGnzyJomqWG71h5qRFrt27Kx~sgEIEqoIg3pbygXYv11ple5GQHyVjO6-Ula342jCVCIIg9qGes6PlAVNtWHH6G28BAkiHy7Vp7xIbtPQRWoAwK5og8gYqW~wPyQ4mPzIASCCwYzjORhevu0049hXAaLPA18zS-XDjWDwp4jd~AWH3ScJ8hYgpxCgb~SdxAn9miawsoyGHyuAYG3cXY5woJp2PA427rpTZoN0CDsSTeCtOZMGqBNYxljcZSonTiDhnTzZtmgP7pxT0TAFYdAiAhEIOvzJrezuCfZl6e9~PdGgWQ__" alt="Maillot Japon" class="product-image mb-4 mx-auto">
         </a>
-        <h3 class="text-2xl font-semibold mb-3">Japon 2024</h3>
+        <h3 class="text-2xl font-semibold mb-3 text-gray-800">Japon 2024</h3>
         <p class="text-gray-700 mb-4">Design moderne inspiré de la tradition nippone. Idéal pour les fans de style et de précision japonaise.</p>
         <a href="produit-japon.html" class="bg-pink-500 text-white px-6 py-2 rounded-lg shadow-lg hover:bg-pink-600 transition">Acheter</a>
       </div>
 
-      <!-- Produit 3 (Maillot Italie) -->
-      <div class="product-card bg-white p-6 rounded-lg shadow-xl">
+      <!-- Produit 3 -->
+      <div class="product-card bg-white p-6 rounded-lg shadow-xl max-w-sm w-full">
         <a href="produit-italie.html">
-          <img src="https://xlforeal.com/cdn/shop/files/italia_heritage_stussy_front_copyright_2_copie.webp?v=1726819373&width=493" alt="Maillot Italie" class="product-image mb-4">
+          <img src="https://media-hosting.imagekit.io/4fa5bfc720794cb1/image_2025-04-11_205556049-removebg-preview.png?Expires=1839005771&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=UOAKFB8MlUlzkWlb-8GESzUqvry4ZkFNcm~drYZkjjOCaUs3m3~6GntUaB23KLyAin5IIWbAtel-5n26GrBQBDPi2GmyNZUofF71XZUTRPiayRp3guIPGwyzmvYRboigmqN8~SiRz5QP4U7dE~4JvjZwkrvjvZS-mzmRCkUnG1vHImK1zsIhbBebzcj2qpN5nxBIIhyex0FQt2BzpOZVVke3oA86qcvjTcV2JpIGexCOM3NbvTaQpiJtlH89wy-v0-whDb94u9szHE3qjB-TU5YzKKtIVOt6CgiD8PkdF2z~Q9CPaznjgsasbZOgzl66mOBWUFIfCv5bSBthI5nLsA__" alt="Maillot Italie" class="product-image mb-4 mx-auto">
         </a>
-        <h3 class="text-2xl font-semibold mb-3">Italie 2024</h3>
+        <h3 class="text-2xl font-semibold mb-3 text-gray-800">Italie 2024</h3>
         <p class="text-gray-700 mb-4">Le style à l’italienne dans toute sa splendeur. Porte les couleurs de la Squadra Azzurra avec fierté.</p>
         <a href="produit-italie.html" class="bg-green-700 text-white px-6 py-2 rounded-lg shadow-lg hover:bg-green-800 transition">Acheter</a>
       </div>
@@ -163,8 +162,8 @@
 
   <!-- Avantages -->
   <section class="bg-white py-12 mt-12 text-center">
-    <h2 class="text-3xl font-semibold text-gray-700 mb-4">Pourquoi choisir FootStyle ?</h2>
-    <p class="max-w-3xlmx-auto text-gray-600 leading-relaxed">
+    <h2 class="text-3xl font-semibold text-gray-700 mb-4">Pourquoi choisir MYFOOT ?</h2>
+    <p class="max-w-3xl mx-auto text-gray-600 leading-relaxed">
       ✔️ Maillots 100% authentiques et certifiés <br>
       🚚 Livraison rapide en 48/72h <br>
       💳 Paiement sécurisé <br>
@@ -172,6 +171,11 @@
     </p>
   </section>
 
-  <!-- Contact -->
+  <!-- Contact + Crédit -->
   <footer id="contact" class="bg-gray-800 p-6 text-center text-white mt-12">
-    <p class="mb-2">Besoin d’aide ?
+    <p class="mb-2">Besoin d’aide ? Contactez-nous à <a href="tounsiiii77@gmail.com" class="underline">tounsiiii77@gmail.com</a></p>
+    <p class="text-sm text-gray-300 mt-4">© 2025 MY FOOT. Tous droits réservés. Site développé par <span class="text-pink-400">Mohamed-Yassine</span>.</p>
+  </footer>
+
+</body>
+</html>

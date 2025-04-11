@@ -10,10 +10,6 @@
     body {
       font-family: 'Bebas Neue', sans-serif;
     }
-    .product-image {
-      max-width: 500px;
-      margin: 0 auto;
-    }
     .product-card {
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
@@ -42,15 +38,21 @@
     <h1 class="text-3xl font-bold">Commander votre Maillot Japon 2024</h1>
   </header>
 
-  <div class="container mx-auto py-8">
+  <div class="container mx-auto py-8 px-4">
     <div class="flex justify-center items-center">
       <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-3xl product-card">
-        <div class="flex items-center mb-6">
-          <img src="https://xlforeal.com/cdn/shop/files/japan_flowers_copyright1.png?v=1740976349&width=493" alt="Maillot Japon 2024" class="product-image mb-4">
+
+        <!-- IMAGE CENTRÉE -->
+        <div class="flex justify-center mb-6">
+          <img src="https://media-hosting.imagekit.io/fd4dfbedb7d5489a/image_2025-04-11_205441467-removebg-preview.png?Expires=1839005704&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=fUJVUXwLrfGYtkbiGH-5bLhGPrjBfa5Rw3BaSitCGnzyJomqWG71h5qRFrt27Kx~sgEIEqoIg3pbygXYv11ple5GQHyVjO6-Ula342jCVCIIg9qGes6PlAVNtWHH6G28BAkiHy7Vp7xIbtPQRWoAwK5og8gYqW~wPyQ4mPzIASCCwYzjORhevu0049hXAaLPA18zS-XDjWDwp4jd~AWH3ScJ8hYgpxCgb~SdxAn9miawsoyGHyuAYG3cXY5woJp2PA427rpTZoN0CDsSTeCtOZMGqBNYxljcZSonTiDhnTzZtmgP7pxT0TAFYdAiAhEIOvzJrezuCfZl6e9~PdGgWQ__"
+               alt="Maillot Japon 2024"
+               class="mb-4 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto">
         </div>
 
-        <h2 class="text-2xl font-semibold text-gray-700 mb-4">Maillot Japon 2024</h2>
-        <p class="product-description text-gray-600 mb-6">Design moderne inspiré de la tradition nippone. Idéal pour les fans de style et de précision japonaise..</p>
+        <h2 class="text-2xl font-semibold text-gray-700 mb-4 text-center">Maillot Japon 2024</h2>
+        <p class="product-description text-gray-600 mb-6 text-center">
+          Design moderne inspiré de la tradition nippone. Idéal pour les fans de style et de précision japonaise.
+        </p>
 
         <div class="mb-4">
           <label for="size" class="block text-lg font-semibold">Choisir la taille</label>
@@ -67,8 +69,8 @@
           <input type="number" id="quantity" name="quantity" value="1" min="1" class="mt-2 w-full p-3 border rounded">
         </div>
 
-        <!-- Affichage du prix et de la réduction -->
-        <div class="flex justify-between items-center mb-6">
+        <!-- Prix + Réduction -->
+        <div class="flex justify-between items-center mb-6 flex-wrap gap-2">
           <div class="text-xl font-semibold text-gray-700">
             Prix : <span id="price">30€</span>
           </div>
@@ -77,66 +79,55 @@
 
         <button class="btn" id="addToCartButton">Ajouter au panier</button>
 
-        <!-- Lien vers le panier -->
+        <!-- Lien panier -->
         <div class="mt-6 text-center">
-          <a href="panier.html" class="text-lg font-semibold text-blue-600">Voir mon panier (<span id="cartCount">0</span> articles)</a>
+          <a href="panier.html" class="text-lg font-semibold text-black-600">
+            Voir mon panier (<span id="cartCount">0</span> articles)
+          </a>
         </div>
       </div>
     </div>
   </div>
 
   <footer class="bg-gray-800 p-6 text-center text-white mt-12">
-    <p>&copy; 2025 FootStyle. Tous droits réservés.</p>
+    <p>&copy; 2025 MYFOOT. Tous droits réservés.</p>
   </footer>
 
   <script>
-    // Fonction pour ajouter au panier
     document.getElementById('addToCartButton').addEventListener('click', function() {
       const size = document.getElementById('size').value;
-      const quantity = document.getElementById('quantity').value;
-      const price = 30; // Prix standard
+      const quantity = parseInt(document.getElementById('quantity').value);
+      const price = 30;
       const totalPrice = price * quantity;
 
-      // Créer un objet produit à ajouter au panier
       const product = {
-        id: 'Japon 2024',
-        name: 'Japon 2024',
+        id: 'japon-2024',
+        name: 'Maillot Japon 2024',
         size: size,
         quantity: quantity,
         price: price,
         totalPrice: totalPrice,
       };
 
-      // Vérifier si le panier existe déjà dans localStorage
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-      // Ajouter le produit au panier
       cart.push(product);
-
-      // Sauvegarder le panier dans localStorage
       localStorage.setItem('cart', JSON.stringify(cart));
 
-      // Afficher une confirmation dans la console (ou une alerte)
       alert('Produit ajouté au panier!');
-      console.log(cart);
-
-      // Mettre à jour le nombre d'articles dans le panier
       updateCartCount();
     });
 
-    // Fonction pour mettre à jour le nombre d'articles dans le panier
     function updateCartCount() {
       const cart = JSON.parse(localStorage.getItem('cart')) || [];
       const totalItems = cart.reduce((sum, item) => sum + parseInt(item.quantity), 0);
       document.getElementById('cartCount').textContent = totalItems;
 
-      // Vérification de la réduction
       const quantity = parseInt(document.getElementById('quantity').value);
       const discountElement = document.getElementById('discount');
       const priceElement = document.getElementById('price');
-      
+
       if (quantity >= 3) {
-        const discountedPrice = 30 * 0.9; // Application de 10% de réduction
+        const discountedPrice = 30 * 0.9;
         priceElement.textContent = `${discountedPrice}€`;
         discountElement.classList.remove('hidden');
       } else {
@@ -145,7 +136,6 @@
       }
     }
 
-    // Mettre à jour le panier dès le chargement de la page
     window.onload = updateCartCount;
   </script>
 
